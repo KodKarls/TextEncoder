@@ -56,6 +56,11 @@ void Menu::ChooseOption()
 		text = dataManager->LoadData();
 
 		//cout << text << endl;
+
+		// Problem z kodowaniem polskich znaków.
+		text = encoding.EncodeLetters< '³', 'a', 'e' >( text );
+		// Pomyœleæ o w³asnym wczytywaniu nazwy pliku.
+		dataManager->SaveData( "files/outputFileKeyboard", text );
 		break;
 
 	case 3:
