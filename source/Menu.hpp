@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DataManager.hpp"
+#include "Encoding.hpp"
 
 /* Klasa reprezentuj¹ca menu z wszelkimi dostêpnymi opcjami. */
 class Menu
@@ -20,5 +21,6 @@ private:
 	bool isActive;
 
 	DataManager*	dataManager;
+	Encoding		encoding;
 };
 
