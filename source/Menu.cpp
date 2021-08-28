@@ -36,13 +36,19 @@ void Menu::ChooseOption()
 	{
 	case 1:
 		cout	<< "Szyfrowanie danych z zapisanego pliku." << endl;
+		dataManager = new FileManager;
+
+		text = dataManager->LoadData();
+
+		// Problem z wypisem polskich znaczków po odczytaniu z pliku i klawiatury!
+		//cout	<< text << endl;
 		break;
 
 	case 2:
 		cout	<< "Szyfrowanie danych z klawiatury." << endl;
 		dataManager = new KeyboardManager;
 
-		cout << "Podaj tekst do zaszyfrowania:" << endl;
+		cout	<< "Podaj tekst do zaszyfrowania:" << endl;
 		dataManager->ClearInput();
 		text = dataManager->LoadData();
 
