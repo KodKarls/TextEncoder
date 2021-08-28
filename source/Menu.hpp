@@ -1,10 +1,14 @@
 #pragma once
 
+#include "DataManager.hpp"
+
 /* Klasa reprezentuj¹ca menu z wszelkimi dostêpnymi opcjami. */
 class Menu
 {
 public:
-	constexpr Menu() : isActive{ true } {};
+	constexpr Menu() : isActive{ true }, dataManager{ nullptr } {};
+
+	~Menu()	{ delete dataManager; }
 
 	void ShowGreeting();
 	void ShowOptions();
@@ -14,5 +18,7 @@ public:
 
 private:
 	bool isActive;
+
+	DataManager*	dataManager;
 };
 

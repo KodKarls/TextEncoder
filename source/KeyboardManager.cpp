@@ -1,10 +1,11 @@
 #include "KeyboardManager.hpp"
 
+using std::cin;
+using std::getline;
+
 std::string KeyboardManager::LoadData()
 {
-	std::string result;
+	getline( cin, keyboardData.kData );
 
-
-
-	return result;
+	return keyboardData.kData;
 }

@@ -1,10 +1,13 @@
 #include "Menu.hpp"
+#include "KeyboardManager.hpp"
+#include "FileManager.hpp"
 
 #include <iostream>
 
 using std::cout;
 using std::endl;
 using std::cin;
+using std::string;
 
 void Menu::ShowGreeting()
 {
@@ -23,7 +26,8 @@ void Menu::ShowOptions()
 
 void Menu::ChooseOption()
 {
-	unsigned short option{ 0 };
+	unsigned short	option	{ 0 };
+	string			text;
 
 	cout	<< "Wybierz opcjê: ";
 	cin		>> option;
@@ -36,6 +40,13 @@ void Menu::ChooseOption()
 
 	case 2:
 		cout	<< "Szyfrowanie danych z klawiatury." << endl;
+		dataManager = new KeyboardManager;
+
+		cout << "Podaj tekst do zaszyfrowania:" << endl;
+		dataManager->ClearInput();
+		text = dataManager->LoadData();
+
+		//cout << text << endl;
 		break;
 
 	case 3:
