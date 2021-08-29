@@ -27,5 +27,7 @@ std::string FileManager::LoadData()
 		cout	<< "Nie uda³o siê odtworzyæ pliku!" << endl;
 	}
 
+	fileData.fData.close();
+
 	return result;
 }
