@@ -20,9 +20,9 @@ enum class EncodeOption
 class Input
 {
 public:
-	Input() :	process{ Process::FILE }, 
-				encodeOption{ EncodeOption::PATTERN }, 
-				dataManager{ nullptr } {}
+	constexpr	Input() :	process{ Process::FILE }, 
+							encodeOption{ EncodeOption::PATTERN }, 
+							dataManager{ nullptr } {}
 
 	void SetProcess( Process p );
 	void SetEncodeOption( EncodeOption eo );

@@ -1,15 +1,12 @@
 #pragma once
 
-#include "DataManager.hpp"
-#include "Encoding.hpp"
+#include "Input.hpp"
 
 /* Klasa reprezentuj¹ca menu z wszelkimi dostêpnymi opcjami. */
 class Menu
 {
 public:
-	constexpr Menu() : isActive{ true }, dataManager{ nullptr } {};
-
-	~Menu()	{ delete dataManager; }
+	constexpr Menu() : isActive{ true } {};
 
 	void ShowGreeting();
 	void ShowOptions();
@@ -20,7 +17,6 @@ public:
 private:
 	bool isActive;
 
-	DataManager*	dataManager;
-	Encoding		encoding;
+	Input input;
 };
 

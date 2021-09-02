@@ -1,6 +1,4 @@
 #include "Menu.hpp"
-#include "KeyboardManager.hpp"
-#include "FileManager.hpp"
 
 #include <iostream>
 
@@ -27,8 +25,6 @@ void Menu::ShowOptions()
 void Menu::ChooseOption()
 {
 	unsigned short	option	{ 0 };
-	string			text;
-	string			outputFileName;
 
 	cout	<< "Wybierz opcjê: ";
 	cin		>> option;
@@ -37,30 +33,18 @@ void Menu::ChooseOption()
 	{
 	case 1:
 		cout	<< "Szyfrowanie danych z zapisanego pliku." << endl;
-		dataManager = new FileManager;
-
-		text = dataManager->LoadData();
-		// Problem z wypisem polskich znaczków po odczytaniu z pliku i klawiatury!
-		//cout	<< text << endl;
-		text = encoding.EncodeByPattern< true, false, false, false >( text );
-
-		dataManager->SaveData( "files/outputFileFile", text );
+		input.SetProcess( Process::FILE );
+		input.SetEncodeOption( EncodeOption::PATTERN );
+		input.ProcessInput();
 		break;
 
 	case 2:
 		cout	<< "Szyfrowanie danych z klawiatury." << endl;
-		dataManager = new KeyboardManager;
+		input.SetProcess( Process::KEYBOARD );
+		input.SetEncodeOption( EncodeOption::LETTERS );
 
 		cout	<< "Podaj tekst do zaszyfrowania:" << endl;
-		dataManager->ClearInput();
-		text = dataManager->LoadData();
-
-		//cout << text << endl;
-
-		// Problem z kodowaniem polskich znaków.
-		text = encoding.EncodeLetters< '³', 'a', 'e' >( text );
-		// Pomyœleæ o w³asnym wczytywaniu nazwy pliku.
-		dataManager->SaveData( "files/outputFileKeyboard", text );
+		input.ProcessInput();
 		break;
 
 	case 3:
