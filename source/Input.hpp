@@ -11,20 +11,30 @@ enum class Process
 	KEYBOARD = 1
 };
 
+enum class EncodeOption
+{
+	PATTERN = 0,
+	LETTERS = 1
+};
+
 class Input
 {
 public:
-	Input() : process{ Process::FILE }, dataManager{ nullptr } {}
+	Input() :	process{ Process::FILE }, 
+				encodeOption{ EncodeOption::PATTERN }, 
+				dataManager{ nullptr } {}
 
 	void SetProcess( Process p );
+	void SetEncodeOption( EncodeOption eo );
 	void ProcessInput();
 
 private:
 	void SetManager();
 
-	Process process;
+	Process							process;
+	EncodeOption					encodeOption;
 
-	std::unique_ptr< DataManager > dataManager;
-	Encoding encoding;
+	std::unique_ptr< DataManager >	dataManager;
+	Encoding						encoding;
 };
 
