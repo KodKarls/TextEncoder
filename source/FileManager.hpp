@@ -3,7 +3,7 @@
 #include "DataManager.hpp"
 #include "FileData.hpp"
 
-struct FileManager : DataManager
+struct FileManager : public DataManager
 {
 	FileData fileData;
 
