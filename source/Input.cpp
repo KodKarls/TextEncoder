@@ -6,6 +6,11 @@
 
 using std::make_unique;
 using std::string;
+using std::vector;
+using std::cout;
+using std::endl;
+using std::cin;
+using std::getline;
 
 void Input::SetProcess( Process p )
 {
@@ -27,14 +32,20 @@ void Input::ProcessInput()
 	switch( encodeOption )
 	{
 	case EncodeOption::PATTERN:
-		text = encoding.EncodeByPattern< true, false, false, false >( text );
+	{
+		auto container = SetPattern();
+		text = encoding.EncodeByPattern( container, text );
 		dataManager->SaveData( "files/outputFileFile", text );
 		break;
+	}
 
 	case EncodeOption::LETTERS:
-		text = encoding.EncodeLetters< '³', 'a', 'e' >( text );
+	{
+		auto container = SetLettersPattern();
+		text = encoding.EncodeLetters( container, text );
 		dataManager->SaveData( "files/outputFileKeyboard", text );
 		break;
+	}
 
 	default:
 		break;
@@ -56,4 +67,54 @@ void Input::SetManager()
 	default:
 		break;
 	}
+}
+
+const std::vector<bool> Input::SetPattern()
+{
+	vector< bool >	vec;
+	bool			isActive	{ true };
+	unsigned short	number		{ 0 };
+
+	cout	<< "[ 1 ] Ukryj literê we wzorcu.\n"
+			<< "[ 2 ] Poka¿ literê we wzorcu.\n"
+			<< "[ 3 ] Zakoñcz wprowadzanie wzorca.\n" << endl;
+
+	while( isActive )
+	{
+		cout	<< "Podaj liczbê: ";
+		cin		>> number;
+
+		if( number == 1 )
+		{
+			vec.push_back( false );
+		}
+		else if( number == 2 )
+		{
+			vec.push_back( true );
+		}
+		else
+		{
+			isActive = false;
+		}
+	}
+
+	return vec;
+}
+
+const std::vector< char > Input::SetLettersPattern()
+{
+	vector< char >	vec;
+	bool			isActive	{ true };
+	string			text;
+
+	cout	<< "Podaj listê znaków, które chcesz zakodowaæ: " << endl;
+
+	getline( cin, text );
+
+	for( unsigned int i = 0; i < text.size(); ++i )
+	{
+		vec.push_back( text[ i ] );
+	}
+
+	return vec;
 }

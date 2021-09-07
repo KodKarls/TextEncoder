@@ -3,6 +3,7 @@
 #include "DataManager.hpp"
 #include "Encoding.hpp"
 
+#include <vector>
 #include <memory>
 
 enum class Process
@@ -30,6 +31,8 @@ public:
 
 private:
 	void SetManager();
+	const std::vector< bool > SetPattern();
+	const std::vector< char > SetLettersPattern();
 
 	Process							process;
 	EncodeOption					encodeOption;
