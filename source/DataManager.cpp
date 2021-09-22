@@ -1,4 +1,5 @@
 #include "DataManager.hpp"
+#include "ConstNames.hpp"
 
 #include <fstream>
 #include <limits>
@@ -12,7 +13,7 @@ using std::streamsize;
 
 void DataManager::SaveData( string fileName, string text )
 {
-	fstream outFile( fileName + ".txt", ios::out );
+	fstream outFile( FileNames::location + fileName + FileNames::format, ios::out );
 
 	outFile << text;
 

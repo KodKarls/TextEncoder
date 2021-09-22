@@ -1,6 +1,7 @@
 #include "Input.hpp"
 #include "FileManager.hpp"
 #include "KeyboardManager.hpp"
+#include "ConstNames.hpp"
 
 #include <string>
 
@@ -25,11 +26,9 @@ void Input::SetEncodeOption()
 
 	while( isActive )
 	{
-		cout	<< "Encoding options available:\n"
-				<< "[ 1 ] Encrypt by pattern.\n"
-				<< "[ 2 ] Encrypt by letters.\n" << endl;
+		cout	<< InputNames::encodingOptions << endl;
 
-		cout	<< "Please enter a number (1, 2): ";
+		cout	<< InputNames::userSelection;
 		cin		>> number;
 
 		if( number == 1 )
@@ -57,7 +56,7 @@ void Input::ProcessInput()
 	{
 		auto container = SetPattern();
 		text = encoding.EncodeByPattern( container, text );
-		dataManager->SaveData( "files/outputFile", text );
+		dataManager->SaveData( FileNames::outputFileName, text );
 		break;
 	}
 
@@ -65,7 +64,7 @@ void Input::ProcessInput()
 	{
 		auto container = SetLettersPattern();
 		text = encoding.EncodeLetters( container, text );
-		dataManager->SaveData( "files/outputFile", text );
+		dataManager->SaveData( FileNames::outputFileName, text );
 		break;
 	}
 
@@ -97,13 +96,11 @@ const std::vector<bool> Input::SetPattern()
 	bool			isActive	{ true };
 	unsigned short	number		{ 0 };
 
-	cout	<< "[ 1 ] Hide the letter in the text.\n"
-			<< "[ 2 ] Leave a letter in the text.\n"
-			<< "[ 3 ] Finish entering the pattern.\n" << endl;
+	cout	<< InputNames::algorithmOption << endl;
 
 	while( isActive )
 	{
-		cout	<< "Please enter a number (1, 2, 3): ";
+		cout	<< InputNames::choiceAlgorithm;
 		cin		>> number;
 
 		if( number == 1 )
@@ -129,7 +126,7 @@ const std::vector< char > Input::SetLettersPattern()
 	bool			isActive	{ true };
 	string			text;
 
-	cout	<< "Enter a list of the characters you want to encode: " << endl;
+	cout	<< InputNames::keyboardPrompt << endl;
 
 	getline( cin, text );
 
