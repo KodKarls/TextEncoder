@@ -2,21 +2,48 @@
 
 #include "Input.hpp"
 
-/* Klasa reprezentuj¹ca menu z wszelkimi dostêpnymi opcjami. */
+/**********************************************************************
+/// \brief The class represent the menu. 
+///
+**********************************************************************/
 class Menu
 {
 public:
+	////////////////////////////////////////////////////////////
+	/// \brief Default constructor
+	///
+	/// This constructor defines defulat menu
+	///
+	////////////////////////////////////////////////////////////
 	constexpr Menu() : isActive{ true } {};
 
+	////////////////////////////////////////////////////////////
+	/// \brief Show greeting on the screen
+	///
+	////////////////////////////////////////////////////////////
 	void ShowGreeting();
+
+	////////////////////////////////////////////////////////////
+	/// \brief Show available options
+	///
+	////////////////////////////////////////////////////////////
 	void ShowOptions();
+
+	////////////////////////////////////////////////////////////
+	/// \brief Processing the option selected by the user
+	///
+	////////////////////////////////////////////////////////////
 	void ChooseOption();
 
+	////////////////////////////////////////////////////////////
+	/// \brief Get current state of the program
+	///
+	/// \return true if the program still running, false if the program shut down
+	////////////////////////////////////////////////////////////
 	bool GetState() const noexcept { return isActive; }
 
 private:
-	bool isActive;
+	bool isActive;		///< Object which represents the current state of the program
 
-	Input input;
+	Input input;		///< Object which represents the input process
 };
-

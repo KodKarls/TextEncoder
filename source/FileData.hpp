@@ -2,8 +2,11 @@
 
 #include <fstream>
 
+/**********************************************************************
+/// \brief The structure for storing file data. 
+///
+**********************************************************************/
 struct FileData
 {
-	std::fstream fData;
+	std::fstream m_data;	///< Object to store data from file
 };
-

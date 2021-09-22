@@ -5,7 +5,7 @@ using std::getline;
 
 std::string KeyboardManager::LoadData()
 {
-	getline( cin, keyboardData.kData );
+	getline( cin, keyboardData.m_data );
 
-	return keyboardData.kData;
+	return keyboardData.m_data;
 }

@@ -10,24 +10,23 @@ std::string FileManager::LoadData()
 {
 	string result;
 
-	fileData.fData.open( "files/inputFile.txt", ios::in );
+	fileData.m_data.open( "files/inputFile.txt", ios::in );
 
-	if( fileData.fData.good() )
+	if( fileData.m_data.good() )
 	{
-		while( !fileData.fData.eof() )
+		while( !fileData.m_data.eof() )
 		{
 			string line;
-			getline( fileData.fData, line );
+			getline( fileData.m_data, line );
 			result += line;
 		}
 	}
-	// Przemyœleæ obs³ugê problemu z odczytaniem pliku!
 	else
 	{
 		cout	<< "Nie uda³o siê odtworzyæ pliku!" << endl;
 	}
 
-	fileData.fData.close();
+	fileData.m_data.close();
 
 	return result;
 }

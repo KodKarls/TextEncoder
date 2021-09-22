@@ -2,13 +2,25 @@
 
 #include <string>
 
-/* Struktura umo¿liwiaj¹ca ró¿ne wersje szyfrowania otrzymanego tekstu  */
+/**********************************************************************
+//// \brief The structure provides different versions of text encoding.
+////
+**********************************************************************/
 struct Encoding
 {
-	/* Szyfrowanie wed³ug podanego wzoru:
-	* Wybieraj¹c wzór np. true, false, false, false - otzymamy szyfrowanie od 2 do 4 litery,
-	* które powtarzaæ siê bêdzie okresowo.
-	*/
+	/**********************************************************************
+	//// \brief Encryption according to the given pattern.
+	////
+	//// If the pattern is: false, false, true, the first two letters will be 
+	//// encoded and the third will not be. Then algorithm do the same until 
+	//// the end of the text.
+	////
+	//// \param first	Container for storing the encoding pattern.
+	//// \param second	Text for encode.
+	////
+	//// \return		Encoded text.
+	////
+	**********************************************************************/
 	template< typename C >
 	std::string EncodeByPattern( const C& container, std::string text )
 	{
@@ -25,9 +37,17 @@ struct Encoding
 		return text;
 	}
 
-	/* Szyfrowanie wed³ug liter:
-	* Wybieramy zestaw liter np. 'a', 'e' - te litery zostan¹ zaszyfrowane w podanym tekœcie.
-	*/
+	/**********************************************************************
+	//// \brief Encryption according to the letters.
+	////
+	//// If the pattern is: a, b, c. All letters a, b, and c in the text will be encoded.
+	////
+	//// \param first	Container for storing the encoding pattern.
+	//// \param second	Text for encode.
+	////
+	//// \return		Encoded text.
+	////
+	**********************************************************************/
 	template< typename C >
 	std::string EncodeLetters( const C& container, std::string text )
 	{
@@ -44,4 +64,3 @@ struct Encoding
 		return text;
 	}
 };
-

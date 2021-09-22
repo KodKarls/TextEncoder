@@ -2,10 +2,8 @@
 
 #include <iostream>
 
-int main( )
+int main()
 {
-	std::setlocale( LC_ALL, "polish" );
-
 	Menu menu;
 	menu.ShowGreeting();
 
