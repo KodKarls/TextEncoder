@@ -34,14 +34,14 @@ void Menu::ChooseOption()
 	case 1:
 		cout	<< "Encryption of data from a saved file." << endl;
 		input.SetProcess( Process::FILE );
-		input.SetEncodeOption( EncodeOption::PATTERN );
+		input.SetEncodeOption();
 		input.ProcessInput();
 		break;
 
 	case 2:
 		cout	<< "Keyboard data encryption." << endl;
 		input.SetProcess( Process::KEYBOARD );
-		input.SetEncodeOption( EncodeOption::LETTERS );
+		input.SetEncodeOption();
 
 		cout	<< "Enter the text to be encrypted:" << endl;
 		input.ProcessInput();

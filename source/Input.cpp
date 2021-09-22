@@ -18,9 +18,31 @@ void Input::SetProcess( Process p )
 	SetManager();
 }
 
-void Input::SetEncodeOption( EncodeOption eo )
+void Input::SetEncodeOption()
 {
-	encodeOption = eo;
+	bool			isActive	{ true };
+	unsigned short	number		{ 0 };
+
+	while( isActive )
+	{
+		cout	<< "Encoding options available:\n"
+				<< "[ 1 ] Encrypt by pattern.\n"
+				<< "[ 2 ] Encrypt by letters.\n" << endl;
+
+		cout	<< "Please enter a number (1, 2): ";
+		cin		>> number;
+
+		if( number == 1 )
+		{
+			encodeOption = EncodeOption::PATTERN;
+			break;
+		}
+		else if( number == 2 )
+		{
+			encodeOption = EncodeOption::LETTERS;
+			break;
+		}
+	}
 }
 
 void Input::ProcessInput()
@@ -35,7 +57,7 @@ void Input::ProcessInput()
 	{
 		auto container = SetPattern();
 		text = encoding.EncodeByPattern( container, text );
-		dataManager->SaveData( "files/outputFileFile", text );
+		dataManager->SaveData( "files/outputFile", text );
 		break;
 	}
 
@@ -43,7 +65,7 @@ void Input::ProcessInput()
 	{
 		auto container = SetLettersPattern();
 		text = encoding.EncodeLetters( container, text );
-		dataManager->SaveData( "files/outputFileKeyboard", text );
+		dataManager->SaveData( "files/outputFile", text );
 		break;
 	}
 

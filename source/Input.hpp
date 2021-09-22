@@ -52,12 +52,12 @@ public:
 	void SetProcess( Process p );
 
 	////////////////////////////////////////////////////////////
-	/// \brief Set encode option for input
+	/// \brief Set encode option for input by the user
 	///
 	/// \param eo type of encoding option for input
 	///
 	////////////////////////////////////////////////////////////
-	void SetEncodeOption( EncodeOption eo );
+	void SetEncodeOption();
 
 	////////////////////////////////////////////////////////////
 	/// \brief	process the input data depends on the type of 
