@@ -75,13 +75,13 @@ const std::vector<bool> Input::SetPattern()
 	bool			isActive	{ true };
 	unsigned short	number		{ 0 };
 
-	cout	<< "[ 1 ] Ukryj literê we wzorcu.\n"
-			<< "[ 2 ] Poka¿ literê we wzorcu.\n"
-			<< "[ 3 ] Zakoñcz wprowadzanie wzorca.\n" << endl;
+	cout	<< "[ 1 ] Hide the letter in the text.\n"
+			<< "[ 2 ] Leave a letter in the text.\n"
+			<< "[ 3 ] Finish entering the pattern.\n" << endl;
 
 	while( isActive )
 	{
-		cout	<< "Podaj liczbê: ";
+		cout	<< "Please enter a number (1, 2, 3): ";
 		cin		>> number;
 
 		if( number == 1 )
@@ -107,7 +107,7 @@ const std::vector< char > Input::SetLettersPattern()
 	bool			isActive	{ true };
 	string			text;
 
-	cout	<< "Podaj listê znaków, które chcesz zakodowaæ: " << endl;
+	cout	<< "Enter a list of the characters you want to encode: " << endl;
 
 	getline( cin, text );
 

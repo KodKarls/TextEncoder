@@ -1,1 +1,1 @@
-To jest przykładowy tekst do zakodowania wybranym sposobem.
+This is sample text to be encoded by the selected method.

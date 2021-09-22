@@ -10,50 +10,50 @@ using std::string;
 void Menu::ShowGreeting()
 {
 	cout	<< "===================================\n"
-			<< "Witaj w programie do szyfrowania :)\n"
+			<< "Welcome to the encryption program :)\n"
 			<< "===================================\n" << endl;
 }
 
 void Menu::ShowOptions()
 {
-	cout	<< "Dostêpne opcje:\n"
-			<< "[ 1 ] Szyfrowanie tekstu zapisanego w pliku.\n"
-			<< "[ 2 ] Szyfrowanie tekstu podanego z klawiatury\n"
-			<< "[ 3 ] Wyjœcie z programu\n" << endl;
+	cout	<< "Options available:\n"
+			<< "[ 1 ] Encryption of text saved in a file.\n"
+			<< "[ 2 ] Encryption of text entered from the keyboard\n"
+			<< "[ 3 ] Exit the program\n" << endl;
 }
 
 void Menu::ChooseOption()
 {
 	unsigned short	option	{ 0 };
 
-	cout	<< "Wybierz opcjê: ";
+	cout	<< "Choose an option(1, 2, 3): ";
 	cin		>> option;
 
 	switch( option )
 	{
 	case 1:
-		cout	<< "Szyfrowanie danych z zapisanego pliku." << endl;
+		cout	<< "Encryption of data from a saved file." << endl;
 		input.SetProcess( Process::FILE );
 		input.SetEncodeOption( EncodeOption::PATTERN );
 		input.ProcessInput();
 		break;
 
 	case 2:
-		cout	<< "Szyfrowanie danych z klawiatury." << endl;
+		cout	<< "Keyboard data encryption." << endl;
 		input.SetProcess( Process::KEYBOARD );
 		input.SetEncodeOption( EncodeOption::LETTERS );
 
-		cout	<< "Podaj tekst do zaszyfrowania:" << endl;
+		cout	<< "Enter the text to be encrypted:" << endl;
 		input.ProcessInput();
 		break;
 
 	case 3:
 		isActive = false;
-		cout	<< "Zakoñczono dzia³anie programu." << endl;
+		cout	<< "The program is terminated." << endl;
 		return;
 
 	default:
-		cout	<< "Nie ma takiej opcji!" << endl;
+		cout	<< "The option does not exist!" << endl;
 		break;
 	}
 
