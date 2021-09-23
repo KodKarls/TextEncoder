@@ -1,0 +1,1 @@
+This is sample text to be encoded by the selected method.
